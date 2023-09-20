@@ -1,5 +1,5 @@
 ![MasterHead](https://cutewallpaper.org/27/can-you-use-a-gif-as-wallpaper-pixel/rog-wallpaper-design-on-behance.gif)
-<h1 align="center">Hey 👋, I'm Mykael Sicard</h1>
+<h1 align="center">Hey 👋🏼, I'm Mykael Sicard</h1>
 <h3 align="center">A passionate full-stack developer from NJ</h3>
 <img src="https://media.tenor.com/3bTxZ4HdrysAAAAC/pixels-neon.gif" alt="coding" align="right" width="400">
 
