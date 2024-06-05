@@ -5,7 +5,7 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=mykaelsss&label=Profile%20views&color=0e75b6&style=flat" alt="mykaelsss" /> </p>
 
-- 🔭 I’m currently working on [LFG](http://3.84.133.113/)
+- 🔭 I’m currently working on [LFG](http://3.95.254.40/)
 
 - 🌱 I’m currently learning **TypeScript**
 
