@@ -1,23 +1,15 @@
 ![MasterHead](https://cutewallpaper.org/27/can-you-use-a-gif-as-wallpaper-pixel/rog-wallpaper-design-on-behance.gif)
 <h1 align="center">Hey 👋🏼, I'm Mykael Sicard</h1>
-<h3 align="center">A passionate full-stack developer from NJ</h3>
+<h3 align="center">A passionate full-stack developer</h3>
 <img src="https://media.tenor.com/3bTxZ4HdrysAAAAC/pixels-neon.gif" alt="coding" align="right" width="400">
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=mykaelsss&label=Profile%20views&color=0e75b6&style=flat" alt="mykaelsss" /> </p>
 
-- 🔭 I’m currently working on [LFG](http://3.95.254.40/)
-
-- 🌱 I’m currently learning **TypeScript**
-
-- 👯 I’m looking to collaborate on **React Projects**
-
 - 👨‍💻 All of my projects are available at [https://msicard.dev/](https://msicard.dev/)
-
-- 💬 Ask me about **React, Python, JavaScript**
 
 - 📫 How to reach me **mykaelsicard04@gmail.com**
 
-- 📄 Know about my experiences [https://docs.google.com/document/d/1lHpiF8GgChv33jPwc7aDI6TsVVTV6Nu6zviusGJYGyc/edit?usp=sharing](https://docs.google.com/document/d/1lHpiF8GgChv33jPwc7aDI6TsVVTV6Nu6zviusGJYGyc/edit?usp=sharing)
+- 📄 Know about my experiences [https://docs.google.com/document/d/1lHpiF8GgChv33jPwc7aDI6TsVVTV6Nu6zviusGJYGyc/edit?usp=sharing](https://docs.google.com/document/d/1fAiu3HlmVinfs5SzG_nKaH3pTMPw2GqhxW723tlg1ag/edit?usp=sharing)
 
 - ⚡ Fun fact **I love the gym 🏋🏽**
 
