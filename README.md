@@ -127,10 +127,14 @@ Full-stack developer who ships **end-to-end** — from PostgreSQL schema design 
 
 <br/><br/>
 
+<img src="https://ghchart.rshah.org/40c463/mykaelsss" alt="Contribution graph" width="800" />
+
+<br/><br/>
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mykaelsss/mykaelsss/output/github-contribution-grid-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mykaelsss/mykaelsss/output/github-contribution-grid-snake.svg" />
-  <img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/output/github-contribution-grid-snake-dark.svg" alt="Snake eating my contributions" />
+  <img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/output/github-contribution-grid-snake-dark.svg" alt="Contribution snake" />
 </picture>
 
 </div>
