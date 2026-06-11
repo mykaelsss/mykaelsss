@@ -1,6 +1,6 @@
 <div align="center">
 
-![Header](https://capsule-render.vercel.app/api?type=waving&color=0:0e75b6,100:6e45e2&height=200&section=header&text=Mykael%20Sicard&fontSize=60&fontColor=ffffff&animation=fadeIn&desc=Full-Stack%20Developer&descAlignY=75&descSize=22)
+![Header](https://capsule-render.vercel.app/api?type=venom&color=0:0e75b6,100:6e45e2&height=230&text=Mykael%20Sicard&fontSize=60&fontColor=ffffff&animation=twinkling&desc=Full-Stack%20Developer&descAlignY=72&descSize=22)
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&pause=1000&color=0E75B6&center=true&vCenter=true&width=600&lines=TypeScript+%7C+React+%7C+Next.js+%7C+Node.js;Building+products+from+schema+to+pixel;AWS+Certified+Cloud+Practitioner+%E2%98%81%EF%B8%8F)](https://msicard.dev/)
 
@@ -127,10 +127,6 @@ Full-stack developer who ships **end-to-end** — from PostgreSQL schema design 
 
 <br/><br/>
 
-<img src="https://ghchart.rshah.org/40c463/mykaelsss" alt="Contribution graph" width="800" />
-
-<br/><br/>
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mykaelsss/mykaelsss/output/github-contribution-grid-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mykaelsss/mykaelsss/output/github-contribution-grid-snake.svg" />
@@ -143,6 +139,6 @@ Full-stack developer who ships **end-to-end** — from PostgreSQL schema design 
 
 <div align="center">
 
-![Footer](https://capsule-render.vercel.app/api?type=waving&color=0:0e75b6,100:6e45e2&height=100&section=footer)
+![Footer](https://capsule-render.vercel.app/api?type=rect&color=0:0e75b6,100:6e45e2&height=4)
 
 </div>

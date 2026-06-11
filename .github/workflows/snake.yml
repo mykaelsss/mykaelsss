@@ -23,6 +23,14 @@ jobs:
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
 
+      # Slow the animation to half speed by doubling the CSS duration
+      - name: Slow down snake animation
+        run: |
+          for f in dist/*.svg; do
+            duration=$(grep -oE '[0-9]+ms' "$f" | tr -d 'ms' | sort -n | tail -1)
+            sudo sed -i "s/${duration}ms/$((duration * 2))ms/g" "$f"
+          done
+
       - uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
