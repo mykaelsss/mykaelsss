@@ -4,7 +4,7 @@
   <img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/main/profile_v7.svg" alt="Mykael Sicard — profile" />
 </a>
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&pause=1000&color=0E75B6&center=true&vCenter=true&width=600&lines=TypeScript+%7C+React+%7C+Next.js+%7C+Node.js;Building+products+from+schema+to+pixel;AWS+Certified+Cloud+Practitioner+%E2%98%81%EF%B8%8F)](https://msicard.dev/)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&pause=1000&color=BF2F2F&center=true&vCenter=true&width=600&lines=TypeScript+%7C+React+%7C+Next.js+%7C+Node.js;Building+products+from+schema+to+pixel;AWS+Certified+Cloud+Practitioner+%E2%98%81%EF%B8%8F)](https://msicard.dev/)
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-msicard.dev-0e75b6?style=for-the-badge&logo=googlechrome&logoColor=white)](https://msicard.dev/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mykaelsicard/)
@@ -111,11 +111,7 @@ Full-stack developer who ships **end-to-end** — from PostgreSQL schema design 
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/main/metrics.svg" alt="GitHub metrics" />
-
-<img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/main/metrics.languages.svg" alt="Top languages" />
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=mykaelsss&theme=tokyonight&hide_border=true" alt="GitHub streak" />
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=mykaelsss&background=1C1C1C&border=BF2F2F&stroke=3F4E4F&ring=BF2F2F&fire=BF2F2F&currStreakNum=DCE3E5&sideNums=DCE3E5&currStreakLabel=D9C9B3&sideLabels=D9C9B3&dates=3F4E4F" alt="GitHub streak" />
 
 <br/><br/>
 
@@ -130,6 +126,6 @@ Full-stack developer who ships **end-to-end** — from PostgreSQL schema design 
 
 <div align="center">
 
-![Footer](https://capsule-render.vercel.app/api?type=rect&color=0:0e75b6,100:6e45e2&height=4)
+<img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/main/footer.svg" alt="Footer" />
 
 </div>

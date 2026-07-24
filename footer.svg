@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="230" viewBox="0 0 900 230">
+  <defs>
+    <linearGradient id="footerBorder" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0"   stop-color="#BF2F2F"/>
+      <stop offset="0.5" stop-color="#3F4E4F"/>
+      <stop offset="1"   stop-color="#D9C9B3"/>
+    </linearGradient>
+    <clipPath id="chromeClip">
+      <rect x="1.5" y="1.5" width="897" height="30"/>
+    </clipPath>
+    <style>
+      .u { fill: #52E252; }
+      .h { fill: #6692FF; }
+      .p { fill: #D9C9B3; }
+      .c { fill: #DCE3E5; }
+      .s { fill: #D9C9B3; }
+      .t { fill: #D9C9B3; opacity: 0.85; }
+      text { font-family: 'SF Mono','Menlo','Consolas','Courier New',monospace; font-size: 15px; }
+      .title { font-size: 12.5px; }
+    </style>
+  </defs>
+
+  <!-- Terminal window -->
+  <rect x="1.5" y="1.5" width="897" height="227" rx="10" ry="10"
+        fill="#1C1C1C" stroke="url(#footerBorder)" stroke-width="1.5"/>
+
+  <!-- Titlebar -->
+  <g clip-path="url(#chromeClip)">
+    <rect x="1.5" y="1.5" width="897" height="30" rx="10" ry="10" fill="#242424"/>
+  </g>
+  <line x1="1.5" y1="31.5" x2="898.5" y2="31.5" stroke="#3F4E4F" stroke-width="0.5"/>
+
+  <!-- Traffic-light dots -->
+  <circle cx="20" cy="16.5" r="5.5" fill="#FF605C"/>
+  <circle cx="38" cy="16.5" r="5.5" fill="#FFBD44"/>
+  <circle cx="56" cy="16.5" r="5.5" fill="#00CA4E"/>
+
+  <text x="450" y="21" class="t title" text-anchor="middle">~/mykael — zsh — 90 × 12</text>
+
+  <!-- $ echo "thanks..." -->
+  <text x="28" y="62">
+    <tspan class="u">mykael</tspan><tspan class="p">@</tspan><tspan class="h">github</tspan><tspan class="p">:~$ </tspan><tspan class="c">echo </tspan><tspan class="s">"thanks for scrolling — let's build something."</tspan>
+  </text>
+  <text x="28" y="86" class="c">thanks for scrolling — let's build something.</text>
+
+  <!-- $ whoami -->
+  <text x="28" y="112">
+    <tspan class="u">mykael</tspan><tspan class="p">@</tspan><tspan class="h">github</tspan><tspan class="p">:~$ </tspan><tspan class="c">whoami</tspan>
+  </text>
+  <text x="28" y="136" class="c">Mykael Sicard — Full-Stack Developer</text>
+
+  <!-- $ cat contact.txt -->
+  <text x="28" y="162">
+    <tspan class="u">mykael</tspan><tspan class="p">@</tspan><tspan class="h">github</tspan><tspan class="p">:~$ </tspan><tspan class="c">cat contact.txt</tspan>
+  </text>
+  <text x="28" y="186" class="c">msicard.dev  ·  linkedin.com/in/mykaelsicard  ·  mykaelsicard04@gmail.com</text>
+
+  <!-- $ exit (blinking cursor — session in the moment of closing) -->
+  <text x="28" y="212">
+    <tspan class="u">mykael</tspan><tspan class="p">@</tspan><tspan class="h">github</tspan><tspan class="p">:~$ </tspan><tspan class="c">exit</tspan><tspan class="c" xml:space="preserve"> </tspan><tspan class="c">█<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1s" repeatCount="indefinite"/></tspan>
+  </text>
+</svg>
