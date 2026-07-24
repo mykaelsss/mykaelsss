@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1235" height="726" viewBox="0 0 1235 726" role="img" aria-label="ASCII GitHub profile card for mykaelsss">
+<defs>
+  <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BF2F2F"/>
+    <stop offset="50%" stop-color="#3F4E4F"/>
+    <stop offset="100%" stop-color="#D9C9B3"/>
+  </linearGradient>
+  <linearGradient id="asciiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#8B0000">
+      <animate attributeName="stop-color" values="#8B0000;#A8B2B5;#8B0000" dur="14s" repeatCount="indefinite"/>
+    </stop>
+    <stop offset="100%" stop-color="#A8B2B5">
+      <animate attributeName="stop-color" values="#A8B2B5;#8B0000;#A8B2B5" dur="14s" repeatCount="indefinite"/>
+    </stop>
+  </linearGradient>
+  <radialGradient id="bgGlow" cx="30%" cy="15%" r="90%">
+    <stop offset="0%" stop-color="#242424"/>
+    <stop offset="100%" stop-color="#1C1C1C"/>
+  </radialGradient>
+  <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+    <rect width="4" height="1" fill="#3F4E4F" opacity="0.12"/>
+  </pattern>
+  <mask id="revealMask" maskUnits="userSpaceOnUse" x="0" y="0" width="1235" height="726">
+    <rect x="0" y="0" width="1235" height="0" fill="#fff">
+      <animate attributeName="height" from="0" to="726" dur="2.4s" begin="0.15s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+    </rect>
+  </mask>
+  <clipPath id="lc0"><rect x="650" y="96" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="1.20s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc1"><rect x="650" y="120" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="1.30s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc2"><rect x="650" y="144" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="1.40s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc3"><rect x="650" y="168" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="1.50s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc4"><rect x="650" y="192" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="1.60s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc5"><rect x="650" y="216" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="1.70s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc6"><rect x="650" y="240" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="1.80s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc7"><rect x="650" y="264" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="1.90s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc8"><rect x="650" y="298" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="2.00s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc9"><rect x="650" y="322" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="2.10s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc10"><rect x="650" y="346" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="2.20s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc11"><rect x="650" y="370" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="2.30s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc12"><rect x="650" y="394" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="2.40s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc13"><rect x="650" y="428" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="2.50s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc14"><rect x="650" y="452" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="2.60s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc15"><rect x="650" y="476" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="2.70s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc16"><rect x="650" y="500" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="2.80s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc17"><rect x="650" y="524" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="2.90s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc18"><rect x="650" y="558" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="3.00s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc19"><rect x="650" y="582" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="3.10s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc20"><rect x="650" y="606" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="3.20s" fill="freeze"/></rect></clipPath>
+  <clipPath id="lc21"><rect x="650" y="640" width="0" height="24"><animate attributeName="width" from="0" to="580" dur="0.34s" begin="3.30s" fill="freeze"/></rect></clipPath>
+  <style>
+    .ascii    { font-family: 'Courier New', Consolas, monospace; font-size: 16px; fill: url(#asciiGrad); }
+    .ascii-sm { font-family: 'Courier New', Consolas, monospace; font-size: 11px; fill: url(#asciiGrad); opacity: 0.55; }
+    .key   { font-family: 'Consolas', 'Menlo', monospace; font-size: 16px; fill: #D9C9B3; }
+    .val   { font-family: 'Consolas', 'Menlo', monospace; font-size: 16px; fill: #DCE3E5; }
+    .num   { font-family: 'Consolas', 'Menlo', monospace; font-size: 16px; fill: #BF2F2F; font-weight: bold; }
+    .cc    { font-family: 'Consolas', 'Menlo', monospace; font-size: 16px; fill: #3F4E4F; }
+    .head  { font-family: 'Consolas', 'Menlo', monospace; font-size: 16px; fill: #BF2F2F; font-weight: bold; }
+    .hr    { font-family: 'Consolas', 'Menlo', monospace; font-size: 16px; fill: #3F4E4F; }
+    text, tspan { white-space: pre; }
+    .term-label { font-family: 'Consolas', 'Menlo', monospace; font-size: 12px; fill: #DCE3E5; opacity: 0.55; letter-spacing: 0.5px; }
+    .scan-label { font-family: 'Consolas', 'Menlo', monospace; font-size: 10px; fill: #BF2F2F; letter-spacing: 1px; }
+    .panel-title { font-family: 'Consolas', 'Menlo', monospace; font-size: 11px; fill: #D9C9B3; letter-spacing: 2px; opacity: 0.75; }
+  </style>
+</defs>
+
+<rect x="0.5" y="0.5" width="1234" height="725" rx="12" fill="url(#bgGlow)" stroke="#3F4E4F" stroke-opacity="0.6"/>
+<rect x="0.5" y="0.5" width="1234" height="725" rx="12" fill="url(#scanlines)"/>
+
+<g id="titlebar">
+  <rect x="4" y="4" width="1227" height="32" rx="10" fill="#1C1C1C" fill-opacity="0.92"/>
+  <circle cx="24" cy="20" r="5" fill="#BF2F2F"><animate attributeName="opacity" values="1;0.55;1" dur="4s" repeatCount="indefinite"/></circle>
+  <circle cx="42" cy="20" r="5" fill="#D9C9B3"><animate attributeName="opacity" values="1;0.55;1" dur="4s" begin="0.3s" repeatCount="indefinite"/></circle>
+  <circle cx="60" cy="20" r="5" fill="#3F4E4F"><animate attributeName="opacity" values="1;0.55;1" dur="4s" begin="0.6s" repeatCount="indefinite"/></circle>
+  <text x="617" y="24" text-anchor="middle" class="term-label">mykaelsss@dev ~ % ./profile.sh --live</text>
+  <circle cx="1120" cy="20" r="4" fill="#BF2F2F">
+    <animate attributeName="opacity" values="1;0.15;1" dur="1.1s" repeatCount="indefinite"/>
+  </circle>
+  <text x="1130" y="24" class="scan-label">SCANNING</text>
+</g>
+
+<rect x="14" y="72" width="618" height="614" rx="10" fill="#1C1C1C" fill-opacity="0.7" stroke="url(#borderGrad)" stroke-width="1" opacity="0.6"/>
+<rect x="640" y="72" width="581" height="614" rx="10" fill="#1C1C1C" fill-opacity="0.7" stroke="url(#borderGrad)" stroke-width="1" opacity="0.6"/>
+<text x="28" y="58" class="panel-title">VISUAL.MAP</text>
+<text x="654" y="58" class="panel-title">SYSTEM.INFO</text>
+
+<g mask="url(#revealMask)">
+  <text x="63" y="0" class="ascii">
+    <tspan x="63" y="180" xml:space="preserve">███╗   ███╗██╗   ██╗██╗  ██╗ █████╗ ███████╗██╗     </tspan>
+    <tspan x="63" y="200" xml:space="preserve">████╗ ████║╚██╗ ██╔╝██║ ██╔╝██╔══██╗██╔════╝██║     </tspan>
+    <tspan x="63" y="220" xml:space="preserve">██╔████╔██║ ╚████╔╝ █████╔╝ ███████║█████╗  ██║     </tspan>
+    <tspan x="63" y="240" xml:space="preserve">██║╚██╔╝██║  ╚██╔╝  ██╔═██╗ ██╔══██║██╔══╝  ██║     </tspan>
+    <tspan x="63" y="260" xml:space="preserve">██║ ╚═╝ ██║   ██║   ██║  ██╗██║  ██║███████╗███████╗</tspan>
+    <tspan x="63" y="280" xml:space="preserve">╚═╝     ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝</tspan>
+    <tspan x="88" y="320" xml:space="preserve">███████╗██╗ ██████╗ █████╗ ██████╗ ██████╗    </tspan>
+    <tspan x="88" y="340" xml:space="preserve">██╔════╝██║██╔════╝██╔══██╗██╔══██╗██╔══██╗   </tspan>
+    <tspan x="88" y="360" xml:space="preserve">███████╗██║██║     ███████║██████╔╝██║  ██║   </tspan>
+    <tspan x="88" y="380" xml:space="preserve">╚════██║██║██║     ██╔══██║██╔══██╗██║  ██║   </tspan>
+    <tspan x="88" y="400" xml:space="preserve">███████║██║╚██████╗██║  ██║██║  ██║██████╔╝   </tspan>
+    <tspan x="88" y="420" xml:space="preserve">╚══════╝╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝    </tspan>
+  </text>
+  <text x="28" y="0" class="ascii-sm">
+    <tspan x="130" y="470" xml:space="preserve">┌─────────────────────────────────────────────────────────┐</tspan>
+    <tspan x="130" y="485" xml:space="preserve">│ &gt; boot.sequence  [OK]   uplink established              │</tspan>
+    <tspan x="130" y="500" xml:space="preserve">│ &gt; auth.session   [OK]   token verified · scope: full    │</tspan>
+    <tspan x="130" y="515" xml:space="preserve">│ &gt; env.node       v22.x  │  ts 5.x  │  next 15.x         │</tspan>
+    <tspan x="130" y="530" xml:space="preserve">│ &gt; env.python     3.12   │  go 1.23 (learning)           │</tspan>
+    <tspan x="130" y="545" xml:space="preserve">│ &gt; region         iad1   │  edge cache: cloudflare       │</tspan>
+    <tspan x="130" y="560" xml:space="preserve">│ &gt; deploy.target  vercel · production · main branch      │</tspan>
+    <tspan x="130" y="575" xml:space="preserve">│                                                         │</tspan>
+    <tspan x="130" y="590" xml:space="preserve">│ &gt; now.building   formalytx · f1 telemetry explorer      │</tspan>
+    <tspan x="130" y="605" xml:space="preserve">│ &gt; latency        170ms  (was 2.8s · 16x faster)         │</tspan>
+    <tspan x="130" y="620" xml:space="preserve">└─────────────────────────────────────────────────────────┘</tspan>
+  </text>
+
+  <g clip-path="url(#lc0)"><text x="650" y="112"><tspan class="hr">─</tspan><tspan class="head"> mykaelsss@github </tspan><tspan class="hr">──────────────────────────────────────</tspan></text></g>
+  <g clip-path="url(#lc1)"><text x="650" y="136"><tspan class="key">. Subject   </tspan><tspan class="cc">: .......................... </tspan><tspan class="val">Mykael Sicard</tspan></text></g>
+  <g clip-path="url(#lc2)"><text x="650" y="160"><tspan class="key">. Role      </tspan><tspan class="cc">: ................... </tspan><tspan class="val">Full-Stack Developer</tspan></text></g>
+  <g clip-path="url(#lc3)"><text x="650" y="184"><tspan class="key">. Location  </tspan><tspan class="cc">: ...................... </tspan><tspan class="val">Jersey City, NJ</tspan></text></g>
+  <g clip-path="url(#lc4)"><text x="650" y="208"><tspan class="key">. Uptime    </tspan><tspan class="cc">: .......... </tspan><tspan class="val">3 years, 10 months, 27 days</tspan></text></g>
+  <g clip-path="url(#lc5)"><text x="650" y="232"><tspan class="key">. Education </tspan><tspan class="cc">: ......... </tspan><tspan class="val">BMCC · A.S. Computer Science</tspan></text></g>
+  <g clip-path="url(#lc6)"><text x="650" y="256"><tspan class="key">. Status    </tspan><tspan class="cc">: ......... </tspan><tspan class="val">Building • Shipping • Lifting</tspan></text></g>
+  <g clip-path="url(#lc7)"><text x="650" y="280"><tspan class="key">. Certs     </tspan><tspan class="cc">: ........ </tspan><tspan class="val">AWS Cloud Practitioner · 2026</tspan></text></g>
+
+  <g clip-path="url(#lc8)"><text x="650" y="314"><tspan class="key">. Core.Lang    </tspan><tspan class="cc">: ... </tspan><tspan class="val">TypeScript, JavaScript, Python, Go</tspan></text></g>
+  <g clip-path="url(#lc9)"><text x="650" y="338"><tspan class="key">. Core.Frontend</tspan><tspan class="cc">: ....... </tspan><tspan class="val">React, Next.js, Tailwind, MUI</tspan></text></g>
+  <g clip-path="url(#lc10)"><text x="650" y="362"><tspan class="key">. Core.Backend </tspan><tspan class="cc">: ...... </tspan><tspan class="val">Node.js, Express, FastAPI, tRPC</tspan></text></g>
+  <g clip-path="url(#lc11)"><text x="650" y="386"><tspan class="key">. Core.Database</tspan><tspan class="cc">: ...... </tspan><tspan class="val">PostgreSQL, MySQL, Mongo, Redis</tspan></text></g>
+  <g clip-path="url(#lc12)"><text x="650" y="410"><tspan class="key">. Core.Infra   </tspan><tspan class="cc">: ...... </tspan><tspan class="val">Docker, AWS, Vercel, Cloudflare</tspan></text></g>
+
+  <g clip-path="url(#lc13)"><text x="650" y="444"><tspan class="hr">─</tspan><tspan class="head"> Contact </tspan><tspan class="hr">───────────────────────────────────────────────</tspan></text></g>
+  <g clip-path="url(#lc14)"><text x="650" y="468"><tspan class="key">. Website  </tspan><tspan class="cc">: .................... </tspan><tspan class="val">https://msicard.dev</tspan></text></g>
+  <g clip-path="url(#lc15)"><text x="650" y="492"><tspan class="key">. Email    </tspan><tspan class="cc">: ............... </tspan><tspan class="val">mykaelsicard04@gmail.com</tspan></text></g>
+  <g clip-path="url(#lc16)"><text x="650" y="516"><tspan class="key">. GitHub   </tspan><tspan class="cc">: ................... </tspan><tspan class="val">github.com/mykaelsss</tspan></text></g>
+  <g clip-path="url(#lc17)"><text x="650" y="540"><tspan class="key">. LinkedIn </tspan><tspan class="cc">: ........................... </tspan><tspan class="val">mykaelsicard</tspan></text></g>
+
+  <g clip-path="url(#lc18)"><text x="650" y="574"><tspan class="hr">─</tspan><tspan class="head"> GitHub Stats </tspan><tspan class="hr">──────────────────────────────────────────</tspan></text></g>
+  <g clip-path="url(#lc19)"><text x="650" y="598"><tspan class="key">. Repos    </tspan><tspan class="cc">: ...........  </tspan><tspan class="num">71</tspan><tspan class="hr">  |  </tspan><tspan class="key">. Stars     </tspan><tspan class="cc">: .... </tspan><tspan class="num">0</tspan></text></g>
+  <g clip-path="url(#lc20)"><text x="650" y="622"><tspan class="key">. Commits  </tspan><tspan class="cc">: ..........  </tspan><tspan class="num">428</tspan><tspan class="hr">  |  </tspan><tspan class="key">. Followers </tspan><tspan class="cc">: .... </tspan><tspan class="num">2</tspan></text></g>
+
+  <g clip-path="url(#lc21)"><text x="650" y="656"><tspan class="cc">→ </tspan><tspan class="val">See live GitHub stats badges below in README ↓</tspan></text></g>
+</g>
+</svg>

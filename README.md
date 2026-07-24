@@ -1,11 +1,13 @@
 <div align="center">
 
-![Header](https://capsule-render.vercel.app/api?type=venom&color=0:0e75b6,100:6e45e2&height=230&text=Mykael%20Sicard&fontSize=60&fontColor=ffffff&animation=twinkling&desc=Full-Stack%20Developer&descAlignY=72&descSize=22)
+<a href="https://msicard.dev/">
+  <img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/main/profile_v7.svg" alt="Mykael Sicard — profile" />
+</a>
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&pause=1000&color=0E75B6&center=true&vCenter=true&width=600&lines=TypeScript+%7C+React+%7C+Next.js+%7C+Node.js;Building+products+from+schema+to+pixel;AWS+Certified+Cloud+Practitioner+%E2%98%81%EF%B8%8F)](https://msicard.dev/)
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-msicard.dev-0e75b6?style=for-the-badge&logo=googlechrome&logoColor=white)](https://msicard.dev/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mykael-sicard-ba6218250/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mykaelsicard/)
 [![Email](https://img.shields.io/badge/Email-mykaelsicard04%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mykaelsicard04@gmail.com)
 
 <img src="https://komarev.com/ghpvc/?username=mykaelsss&label=Profile%20views&color=0e75b6&style=flat" alt="profile views" />
@@ -79,17 +81,6 @@ Full-stack developer who ships **end-to-end** — from PostgreSQL schema design 
 - Multi-layer caching strategy (live / settling / immutable sessions) served via Cloudflare edge — telemetry responses cut from **~2.8s to ~170ms (16x faster)**
 - Interactive multi-driver comparison charts overlaying lap times, speed, throttle, brake, and gear for **any F1 session since 2018**
 
-### 🎮 [LFG — Social Networking for Gamers](https://github.com/mykaelsss/lfg_project)
-> **Python · Flask · Jinja2 · MySQL**
-
-- Community platform with user profiles, friend connections, and game listings
-- Optimized queries and indexing, **reducing page load times by 20%**
-
-### 🔗 [LinkList — Personal Link Management](https://github.com/mykaelsss/LinkList/tree/main)
-> **Next.js · Tailwind CSS · Supabase**
-
-- LinkTree-style platform with custom themes, analytics tracking, and social integrations
-
 ---
 
 ## 💼 Experience Highlights
@@ -120,8 +111,9 @@ Full-stack developer who ships **end-to-end** — from PostgreSQL schema design 
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=mykaelsss&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub stats" height="165" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs?username=mykaelsss&layout=compact&theme=tokyonight&hide_border=true" alt="Top languages" height="165" />
+<img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/main/metrics.svg" alt="GitHub metrics" />
+
+<img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/main/metrics.languages.svg" alt="Top languages" />
 
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=mykaelsss&theme=tokyonight&hide_border=true" alt="GitHub streak" />
 
@@ -130,7 +122,6 @@ Full-stack developer who ships **end-to-end** — from PostgreSQL schema design 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mykaelsss/mykaelsss/output/github-contribution-grid-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mykaelsss/mykaelsss/output/github-contribution-grid-snake.svg" />
-  <img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/output/github-contribution-grid-snake-dark.svg" alt="Contribution snake" />
 </picture>
 
 </div>
