@@ -113,18 +113,9 @@ Full-stack developer who ships **end-to-end** — from PostgreSQL schema design 
 
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=mykaelsss&background=1C1C1C&border=BF2F2F&stroke=3F4E4F&ring=BF2F2F&fire=BF2F2F&currStreakNum=DCE3E5&sideNums=DCE3E5&currStreakLabel=D9C9B3&sideLabels=D9C9B3&dates=3F4E4F" alt="GitHub streak" />
 
-<br/><br/>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mykaelsss/mykaelsss/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mykaelsss/mykaelsss/output/github-contribution-grid-snake.svg" />
-</picture>
-
 </div>
 
 ---
-
-<div align="center">
 
 <img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/main/footer.svg" alt="Footer" />
 
