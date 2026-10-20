@@ -1,4 +1,4 @@
-name: Generate streak card
+name: Generate profile cards
 
 on:
   schedule:
@@ -9,13 +9,15 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/streak.yml
+      - .github/workflows/profile.yml
+      - profile_v7.svg
+      - scripts/render_profile.py
 
 permissions:
   contents: write
 
 concurrency:
-  group: streak
+  group: profile-cards
   cancel-in-progress: false
 
 jobs:
@@ -26,6 +28,15 @@ jobs:
       STREAK_URL: https://github-readme-streak-stats.herokuapp.com/?user=${{ github.repository_owner }}&background=1C1C1C&border=BF2F2F&stroke=3F4E4F&ring=BF2F2F&fire=BF2F2F&currStreakNum=DCE3E5&sideNums=DCE3E5&currStreakLabel=D9C9B3&sideLabels=D9C9B3&dates=3F4E4F
       PUBLISHED_URL: https://raw.githubusercontent.com/${{ github.repository }}/output/streak.svg
     steps:
+      - uses: actions/checkout@v4
+
+      # A failure here fails the job before publishing, so the output branch
+      # keeps yesterday's cards rather than losing the hero card
+      - name: Render hero card
+        run: python3 scripts/render_profile.py "${{ github.repository_owner }}" dist/profile.svg
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       # The service reports failures (rate limits, outages) as an error card with
       # HTTP 200, so a real card is recognized by its content, not its status.
       # Publishing replaces the whole output branch, so when no fresh card can be

@@ -116,7 +116,7 @@
   <g clip-path="url(#lc1)"><text x="650" y="136"><tspan class="key">. Subject   </tspan><tspan class="cc">: ............................. </tspan><tspan class="val">Mykael Sicard</tspan></text></g>
   <g clip-path="url(#lc2)"><text x="650" y="160"><tspan class="key">. Role      </tspan><tspan class="cc">: ...................... </tspan><tspan class="val">Full-Stack Developer</tspan></text></g>
   <g clip-path="url(#lc3)"><text x="650" y="184"><tspan class="key">. Location  </tspan><tspan class="cc">: .............................. </tspan><tspan class="val">New York, NY</tspan></text></g>
-  <g clip-path="url(#lc4)"><text x="650" y="208"><tspan class="key">. Uptime    </tspan><tspan class="cc">: ................. </tspan><tspan class="val">4 years, 1 month, 24 days</tspan></text></g>
+  <g clip-path="url(#lc4)"><text id="uptime" x="650" y="208"><tspan class="key">. Uptime    </tspan><tspan class="cc">: ................. </tspan><tspan class="val">4 years, 1 month, 24 days</tspan></text></g>
   <g clip-path="url(#lc5)"><text x="650" y="232"><tspan class="key">. Education </tspan><tspan class="cc">: .............. </tspan><tspan class="val">BMCC · A.S. Computer Science</tspan></text></g>
   <g clip-path="url(#lc6)"><text x="650" y="256"><tspan class="key">. Status    </tspan><tspan class="cc">: ..................... </tspan><tspan class="val">Open to opportunities</tspan></text></g>
   <g clip-path="url(#lc7)"><text x="650" y="280"><tspan class="key">. Certs     </tspan><tspan class="cc">: ................ </tspan><tspan class="val">AWS CLF-C02 · Azure AI-200</tspan></text></g>
@@ -134,8 +134,8 @@
   <g clip-path="url(#lc17)"><text x="650" y="540"><tspan class="key">. LinkedIn </tspan><tspan class="cc">: ............................... </tspan><tspan class="val">mykaelsicard</tspan></text></g>
 
   <g clip-path="url(#lc18)"><text x="650" y="574"><tspan class="hr">─</tspan><tspan class="head"> GitHub Stats </tspan><tspan class="hr">──────────────────────────────────────────</tspan></text></g>
-  <g clip-path="url(#lc19)"><text x="650" y="598"><tspan class="key">. Repos    </tspan><tspan class="cc">: ......... </tspan><tspan class="num">75</tspan><tspan class="hr">  |  </tspan><tspan class="key">. PRs      </tspan><tspan class="cc">: ........... </tspan><tspan class="num">84</tspan></text></g>
-  <g clip-path="url(#lc20)"><text x="650" y="622"><tspan class="key">. Commits  </tspan><tspan class="cc">: ........ </tspan><tspan class="num">758</tspan><tspan class="hr">  |  </tspan><tspan class="key">. Contribs </tspan><tspan class="cc">: ........ </tspan><tspan class="num">2,396</tspan></text></g>
+  <g clip-path="url(#lc19)"><text id="stats-1" x="650" y="598"><tspan class="key">. Repos    </tspan><tspan class="cc">: ......... </tspan><tspan class="num">75</tspan><tspan class="hr">  |  </tspan><tspan class="key">. PRs      </tspan><tspan class="cc">: ........... </tspan><tspan class="num">84</tspan></text></g>
+  <g clip-path="url(#lc20)"><text id="stats-2" x="650" y="622"><tspan class="key">. Commits  </tspan><tspan class="cc">: ........ </tspan><tspan class="num">758</tspan><tspan class="hr">  |  </tspan><tspan class="key">. Contribs </tspan><tspan class="cc">: ........ </tspan><tspan class="num">2,396</tspan></text></g>
 
   <g clip-path="url(#lc21)"><text x="650" y="656"><tspan class="cc">→ </tspan><tspan class="val">See live GitHub stats badges below in README ↓</tspan></text></g>
 </g>
