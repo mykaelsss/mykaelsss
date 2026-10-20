@@ -131,6 +131,12 @@ I like owning the whole system, not just the part that renders.
 
 <img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/output/streak.svg" alt="GitHub streak" />
 
+<br /><br />
+
+<a href="https://formalytx.com/">
+  <img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/main/track.svg" alt="F1 cars lapping the Circuit of the Americas" />
+</a>
+
 </div>
 
 ---
