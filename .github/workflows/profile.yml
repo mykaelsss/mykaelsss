@@ -12,6 +12,7 @@ on:
       - .github/workflows/profile.yml
       - profile_v7.svg
       - scripts/render_profile.py
+      - scripts/render_track.py
 
 permissions:
   contents: write
@@ -26,7 +27,7 @@ jobs:
     timeout-minutes: 10
     env:
       STREAK_URL: https://github-readme-streak-stats.herokuapp.com/?user=${{ github.repository_owner }}&background=1C1C1C&border=BF2F2F&stroke=3F4E4F&ring=BF2F2F&fire=BF2F2F&currStreakNum=DCE3E5&sideNums=DCE3E5&currStreakLabel=D9C9B3&sideLabels=D9C9B3&dates=3F4E4F
-      PUBLISHED_URL: https://raw.githubusercontent.com/${{ github.repository }}/output/streak.svg
+      PUBLISHED_URL: https://raw.githubusercontent.com/${{ github.repository }}/output
     steps:
       - uses: actions/checkout@v4
 
@@ -56,10 +57,34 @@ jobs:
             sleep 30
           done
 
-          if curl -fsSL --retry 3 --max-time 30 "$PUBLISHED_URL" -o dist/streak.svg && is_card dist/streak.svg; then
+          if curl -fsSL --retry 3 --max-time 30 "$PUBLISHED_URL/streak.svg" -o dist/streak.svg && is_card dist/streak.svg; then
             echo "::warning::Streak service unavailable, republishing the last good card"
           else
             echo "::error::Streak service unavailable and no previously published card to fall back on"
+            exit 1
+          fi
+
+      # The car artwork is licensed stock that must never be published as a
+      # file, so it lives in a secret and only display-size rasters of it end
+      # up in the card. When the F1 APIs are down the last good card is carried
+      # over, the same way as the streak card.
+      - name: Render race track
+        env:
+          CAR_SVG: ${{ secrets.TRACK_CAR_SVG }}
+        run: |
+          render() {
+            sudo apt-get update -qq && sudo apt-get install -y -qq librsvg2-bin >/dev/null &&
+              printf '%s' "$CAR_SVG" > "$RUNNER_TEMP/car.svg" &&
+              python3 scripts/render_track.py --car "$RUNNER_TEMP/car.svg" --output dist/track.svg
+          }
+
+          if render; then
+            exit 0
+          fi
+          if curl -fsSL --retry 3 --max-time 30 "$PUBLISHED_URL/track.svg" -o dist/track.svg && grep -q 'id="lap"' dist/track.svg; then
+            echo "::warning::Race track render failed, republishing the last good card"
+          else
+            echo "::error::Race track render failed and no previously published card to fall back on"
             exit 1
           fi
 

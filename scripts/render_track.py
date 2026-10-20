@@ -1,25 +1,47 @@
-"""Render the race track card: a real circuit with F1 cars lapping it.
+"""Render the race track card: the next Grand Prix circuit with the top six of
+the drivers' championship lapping it in their team colors.
 
-The circuit outline comes from bacinger/f1-circuits (MIT). Each car follows the
-same speed profile, built from the track's curvature with grip, acceleration
-and braking limits, so the cars brake into corners and bunch up before
-stretching out again down the straights.
+Data sources:
+- Schedule and standings from the Jolpica F1 API (Ergast successor).
+- Team colors from the OpenF1 API.
+- Circuit outlines from bacinger/f1-circuits (MIT), matched to the race by
+  location.
 
-Usage: python3 scripts/render_track.py [circuit-id] [output.svg]
+Each car follows the same speed profile, built from the track's curvature with
+grip, acceleration and braking limits, so the cars brake into corners and
+bunch up before stretching out again down the straights.
+
+The car artwork is a licensed stock drawing that must never be published as a
+file. It stays out of the repo (assets/ is gitignored) and reaches CI through
+the TRACK_CAR_SVG secret. Each car is rasterized here at display size and
+embedded in the card, so the card never carries the vector.
+Needs rsvg-convert (librsvg).
+
+Usage: python3 scripts/render_track.py [--car assets/car.svg] [--output track.svg]
 """
 
+import argparse
+import base64
 import json
 import math
-import sys
+import re
+import shutil
+import subprocess
 import urllib.request
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-SOURCE = "https://raw.githubusercontent.com/bacinger/f1-circuits/master/circuits/{id}.geojson"
-DEFAULT_CIRCUIT = "us-2012"
-DEFAULT_OUTPUT = Path(__file__).resolve().parent.parent / "track.svg"
+ROOT = Path(__file__).resolve().parent.parent
+JOLPICA = "https://api.jolpi.ca/ergast/f1"
+OPENF1 = "https://api.openf1.org/v1"
+CIRCUITS = "https://raw.githubusercontent.com/bacinger/f1-circuits/master/f1-circuits.geojson"
+# Keep showing a race until it is surely over, then move on to the next one
+RACE_LENGTH = timedelta(hours=3)
+# A race this far from every known outline has no match in the dataset
+MAX_CIRCUIT_DISTANCE_KM = 10
 
 WIDTH, HEIGHT = 1235, 460
-# Room around the circuit for the frame and the caption
+# Room around the circuit for the frame and the captions
 PAD_X, PAD_TOP, PAD_BOTTOM = 70, 70, 70
 SAMPLES = 1200
 
@@ -29,22 +51,83 @@ LATERAL_GRIP = 40.0  # m/s^2, about 4 g
 BRAKING = 45.0  # m/s^2
 ACCEL_AT_REST = 14.0  # m/s^2, falls off with speed as drag catches up
 
-# Seconds of animation per lap, where the leader is on the first frame as a
-# fraction of the lap, and each car's gap in seconds to the one ahead
+# Seconds of animation per lap, and where the leader is on the first frame as
+# a fraction of the lap
 LAP_SECONDS = 16.0
 FIRST_FRAME = 0.3
-CARS = [
-    ("#BF2F2F", 0.0),
-    ("#DCE3E5", 0.55),
-    ("#D9C9B3", 0.5),
-    ("#7A9294", 0.75),
-    ("#8B0000", 0.6),
-]
+# Gap in seconds from each car to the one ahead, leader first
+GAPS = [0.0, 0.55, 0.5, 0.75, 0.6, 0.5]
+# Nose to rear wing in card pixels, and the raster width behind it, so the car
+# stays sharp on high-density screens without shipping a usable asset
+CAR_LENGTH = 40
+CAR_RASTER_WIDTH = 120
+# The artwork's body and shadow reds, replaced by each team's colors
+ARTWORK_BODY, ARTWORK_SHADE = "#c22321", "#8e1615"
 
 
-def fetch(circuit_id):
-    with urllib.request.urlopen(SOURCE.format(id=circuit_id), timeout=30) as res:
-        feature = json.load(res)["features"][0]
+def get_json(url):
+    req = urllib.request.Request(url, headers={"User-Agent": "mykaelsss-profile-card"})
+    with urllib.request.urlopen(req, timeout=30) as res:
+        return json.load(res)
+
+
+def season_races(season):
+    return get_json(f"{JOLPICA}/{season}/races.json")["MRData"]["RaceTable"]["Races"]
+
+
+def race_start(race):
+    return datetime.fromisoformat(f"{race['date']}T{race.get('time', '00:00:00Z')}".replace("Z", "+00:00"))
+
+
+def next_race(now):
+    """The race in progress or coming up next, or the season finale in the off-season."""
+    races = season_races(now.year)
+    for race in races + season_races(now.year + 1):
+        if race_start(race) + RACE_LENGTH > now:
+            return race, "NEXT RACE"
+    return races[-1], "LAST RACE"
+
+
+def top_six(now):
+    # Early in the year the new season has no standings yet
+    for season in (now.year, now.year - 1):
+        lists = get_json(f"{JOLPICA}/{season}/driverstandings.json")["MRData"]["StandingsTable"]["StandingsLists"]
+        if lists:
+            return [s["Driver"]["code"] for s in lists[0]["DriverStandings"][:6]]
+    raise RuntimeError("no driver standings for this season or last")
+
+
+def team_colors(codes):
+    """Each driver's team color, from the latest session they took part in."""
+    latest = {d["name_acronym"]: d["team_colour"] for d in get_json(f"{OPENF1}/drivers?session_key=latest")}
+    colors = {}
+    for code in codes:
+        if code not in latest:
+            history = get_json(f"{OPENF1}/drivers?name_acronym={code}")
+            if not history:
+                raise RuntimeError(f"OpenF1 has no team color for {code}")
+            latest[code] = max(history, key=lambda d: d["session_key"])["team_colour"]
+        colors[code] = "#" + latest[code].upper()
+    return colors
+
+
+def haversine_km(a, b):
+    (lon1, lat1), (lon2, lat2) = (map(math.radians, p) for p in (a, b))
+    h = math.sin((lat2 - lat1) / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin((lon2 - lon1) / 2) ** 2
+    return 12742 * math.asin(math.sqrt(h))
+
+
+def circuit_near(location):
+    target = (float(location["long"]), float(location["lat"]))
+
+    def distance(feature):
+        coords = feature["geometry"]["coordinates"]
+        center = (sum(c[0] for c in coords) / len(coords), sum(c[1] for c in coords) / len(coords))
+        return haversine_km(center, target)
+
+    feature = min(get_json(CIRCUITS)["features"], key=distance)
+    if distance(feature) > MAX_CIRCUIT_DISTANCE_KM:
+        raise RuntimeError(f"no circuit outline near {location['locality']}")
     return feature["properties"], feature["geometry"]["coordinates"]
 
 
@@ -163,27 +246,39 @@ def lap_timing(speed, step, keyframes=150):
     return key_times, key_points, lap
 
 
-def car(color, path_id, begin, key_times, key_points):
-    # Drawn nose along +x so rotate="auto" points it down the track
+def darker(color, factor=0.7):
+    return "#" + "".join(f"{int(int(color[i : i + 2], 16) * factor):02X}" for i in (1, 3, 5))
+
+
+def car_raster(artwork, color):
+    """PNG data URI of the car painted in `color`, at display resolution."""
+    painted = re.sub(ARTWORK_BODY, color, artwork, flags=re.I)
+    painted = re.sub(ARTWORK_SHADE, darker(color), painted, flags=re.I)
+    png = subprocess.run(
+        ["rsvg-convert", "--format=png", f"--width={CAR_RASTER_WIDTH}", "--keep-aspect-ratio"],
+        input=painted.encode(),
+        capture_output=True,
+        check=True,
+    ).stdout
+    return "data:image/png;base64," + base64.b64encode(png).decode()
+
+
+def car(image_id, begin, key_times, key_points):
+    # The artwork faces left, so mirror it to face down the track under rotate="auto"
     return f"""
   <g>
     <animateMotion dur="{LAP_SECONDS}s" begin="{begin:.2f}s" repeatCount="indefinite" rotate="auto" calcMode="linear" keyTimes="{key_times}" keyPoints="{key_points}">
-      <mpath href="#{path_id}"/>
+      <mpath href="#lap"/>
     </animateMotion>
-    <g transform="scale(1.3) translate(-11 0)">
-      <rect x="1" y="-6" width="5" height="12" rx="1" fill="{color}"/>
-      <rect x="3" y="-7.5" width="4" height="3" rx="1" fill="#111"/>
-      <rect x="3" y="4.5" width="4" height="3" rx="1" fill="#111"/>
-      <rect x="15" y="-7" width="4" height="2.6" rx="1" fill="#111"/>
-      <rect x="15" y="4.4" width="4" height="2.6" rx="1" fill="#111"/>
-      <path d="M5 -2.6 L17 -1.6 L23 -0.6 L23 0.6 L17 1.6 L5 2.6 Z" fill="{color}"/>
-      <rect x="20" y="-5.5" width="2.2" height="11" rx="0.8" fill="{color}"/>
-      <ellipse cx="11" cy="0" rx="2.4" ry="1.4" fill="#111"/>
-    </g>
+    <use href="#{image_id}" transform="scale(-1 1)"/>
   </g>"""
 
 
-def render(props, coords):
+def esc(text):
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def render(race, label, drivers, colors, props, coords, artwork):
     meters = catmull_rom(to_meters(coords))
     meters, length = resample(meters, SAMPLES)
     speed, step = speed_profile(meters, length)
@@ -206,18 +301,34 @@ def render(props, coords):
             zones.append("M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in pts[start : i + 1]))
             start = None
 
-    # A negative begin starts a car that many seconds into its lap, so the
-    # field is already spread out on the first frame
-    cars, behind = [], 0.0
-    for color, gap in CARS:
-        behind += gap
-        cars.append(car(color, "lap", -((FIRST_FRAME * LAP_SECONDS - behind) % LAP_SECONDS), key_times, key_points))
-    cars = "".join(cars)
+    # One raster per team, shared by its drivers
+    _, _, art_w, art_h = map(float, re.search(r'viewBox="([^"]+)"', artwork).group(1).split())
+    car_w, car_h = CAR_LENGTH, CAR_LENGTH * art_h / art_w
+    images = {color: f"car-{color[1:]}" for color in dict.fromkeys(colors[code] for code in drivers)}
+    image_defs = "".join(
+        f'\n  <image id="{image_id}" x="{-car_w / 2:.2f}" y="{-car_h / 2:.2f}" width="{car_w}" height="{car_h:.2f}" href="{car_raster(artwork, color)}"/>'
+        for color, image_id in images.items()
+    )
 
-    name = props["Name"].upper()
+    # A negative begin starts a car that many seconds into its lap, so the
+    # field is already spread out on the first frame, leader in front
+    cars, behind = [], 0.0
+    for code, gap in zip(drivers, GAPS):
+        behind += gap
+        begin = -((FIRST_FRAME * LAP_SECONDS - behind) % LAP_SECONDS)
+        cars.append(car(images[colors[code]], begin, key_times, key_points))
+
+    legend = "".join(
+        f'<rect x="{WIDTH - 32 - (6 - i) * 76}" y="33" width="10" height="10" rx="2" fill="{colors[code]}"/>'
+        f'<text x="{WIDTH - 32 - (6 - i) * 76 + 16}" y="43" class="meta"><tspan class="dim">{i + 1}</tspan> {code}</text>'
+        for i, code in enumerate(drivers)
+    )
+
+    when = race_start(race).strftime("%b %d").upper()
+    title = f"{label} · ROUND {race['round']} · {race['raceName'].upper()} · {when}"
     minutes, seconds = divmod(lap, 60)
-    caption = f"{props['Location'].upper()} · {props['length'] / 1000:.3f} KM · SIM LAP {minutes:.0f}:{seconds:06.3f}"
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}" role="img" aria-label="F1 cars lapping {props['Name']}">
+    caption = f"{props['Name'].upper()} · {props['length'] / 1000:.3f} KM · SIM LAP {minutes:.0f}:{seconds:06.3f}"
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}" role="img" aria-label="Championship top six lapping {esc(props['Name'])}">
 <defs>
   <linearGradient id="trackBorder" x1="0" x2="1" y1="0" y2="0">
     <stop offset="0" stop-color="#BF2F2F"/>
@@ -232,7 +343,7 @@ def render(props, coords):
     <rect width="4" height="4" fill="#DCE3E5"/>
     <rect width="2" height="2" fill="#111"/>
     <rect x="2" y="2" width="2" height="2" fill="#111"/>
-  </pattern>
+  </pattern>{image_defs}
   <style>
     .title {{ font-family: 'Consolas', 'Menlo', monospace; font-size: 16px; fill: #BF2F2F; font-weight: bold; }}
     .meta  {{ font-family: 'Consolas', 'Menlo', monospace; font-size: 14px; fill: #D9C9B3; }}
@@ -240,8 +351,9 @@ def render(props, coords):
   </style>
 </defs>
 <rect x="1.5" y="1.5" width="{WIDTH - 3}" height="{HEIGHT - 3}" rx="12" fill="url(#trackGlow)" stroke="url(#trackBorder)" stroke-width="3"/>
-<text x="32" y="44" class="title">{name}</text>
-<text x="32" y="{HEIGHT - 30}" class="meta">{caption}</text>
+<text x="32" y="44" class="title">{esc(title)}</text>
+{legend}
+<text x="32" y="{HEIGHT - 30}" class="meta">{esc(caption)}</text>
 <text x="{WIDTH - 32}" y="{HEIGHT - 30}" class="dim" text-anchor="end">red = braking zones · formalytx.com</text>
 
 <g fill="none" stroke-linejoin="round">
@@ -251,17 +363,32 @@ def render(props, coords):
 <path d="{d}" fill="none" stroke="#3F4E4F" stroke-width="1.5" stroke-dasharray="6 6"/>
 <path d="{" ".join(zones)}" fill="none" stroke="#BF2F2F" stroke-width="3" stroke-linecap="round"/>
 <rect x="-3" y="-12" width="6" height="24" fill="url(#checker)" transform="translate({x0:.1f} {y0:.1f}) rotate({heading:.1f})"/>
-{cars}
+{"".join(cars)}
 </svg>
 """
 
 
 def main():
-    circuit_id = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_CIRCUIT
-    output = Path(sys.argv[2]) if len(sys.argv) > 2 else DEFAULT_OUTPUT
-    props, coords = fetch(circuit_id)
-    output.write_text(render(props, coords), encoding="utf-8")
-    print(f"Rendered {output} from {props['Name']}")
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--car", type=Path, default=ROOT / "assets" / "car.svg", help="top-down car drawing, nose pointing left")
+    parser.add_argument("--output", type=Path, default=ROOT / "track.svg")
+    args = parser.parse_args()
+
+    if not shutil.which("rsvg-convert"):
+        raise SystemExit("rsvg-convert not found: install librsvg")
+    artwork = args.car.read_text(encoding="utf-8") if args.car.exists() else ""
+    if ARTWORK_BODY not in artwork.lower():
+        raise SystemExit(f"No car artwork at {args.car}: add the TRACK_CAR_SVG secret, or the drawing locally")
+
+    now = datetime.now(timezone.utc)
+    race, label = next_race(now)
+    drivers = top_six(now)
+    colors = team_colors(drivers)
+    props, coords = circuit_near(race["Circuit"]["Location"])
+
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(render(race, label, drivers, colors, props, coords, artwork), encoding="utf-8")
+    print(f"Rendered {args.output}: {race['raceName']} at {props['Name']}, " + ", ".join(f"{c} {colors[c]}" for c in drivers))
 
 
 if __name__ == "__main__":

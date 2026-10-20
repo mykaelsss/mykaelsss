@@ -134,7 +134,7 @@ I like owning the whole system, not just the part that renders.
 <br /><br />
 
 <a href="https://formalytx.com/">
-  <img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/main/track.svg" alt="F1 cars lapping the Circuit of the Americas" />
+  <img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/output/track.svg" alt="The championship top six lapping the next Grand Prix circuit" />
 </a>
 
 </div>

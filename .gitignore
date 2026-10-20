@@ -1,0 +1,2 @@
+# Licensed stock artwork: never commit, CI gets it from the TRACK_CAR_SVG secret
+/assets/
