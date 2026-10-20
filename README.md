@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://msicard.dev/">
-  <img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/main/profile_v7.svg" alt="Mykael Sicard - profile" />
+  <img src="https://raw.githubusercontent.com/mykaelsss/mykaelsss/output/profile.svg" alt="Mykael Sicard - profile" />
 </a>
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&pause=1000&color=BF2F2F&center=true&vCenter=true&width=600&lines=Full-Stack+Developer+in+New+York+City;TypeScript+%7C+React+%7C+Next.js+%7C+FastAPI;Owning+systems+end+to+end%2C+schema+to+pixel;AWS+Cloud+Practitioner+%C2%B7+Azure+AI+Developer)](https://msicard.dev/)
