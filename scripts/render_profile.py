@@ -137,6 +137,8 @@ def replace_row(svg, row_id, body):
 
 
 def main():
+    if not os.environ.get("GH_TOKEN"):
+        sys.exit("GH_TOKEN is empty: add the PROFILE_STATS_TOKEN repository secret")
     login, output = sys.argv[1], Path(sys.argv[2])
     stats = fetch_stats(login)
     today = datetime.now(TZ)

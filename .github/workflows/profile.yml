@@ -31,11 +31,13 @@ jobs:
       - uses: actions/checkout@v4
 
       # A failure here fails the job before publishing, so the output branch
-      # keeps yesterday's cards rather than losing the hero card
+      # keeps yesterday's cards rather than losing the hero card.
+      # PROFILE_STATS_TOKEN is a read-only fine-grained token so the commit and
+      # PR counts include private repos; GITHUB_TOKEN only sees public ones.
       - name: Render hero card
         run: python3 scripts/render_profile.py "${{ github.repository_owner }}" dist/profile.svg
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN }}
 
       # The service reports failures (rate limits, outages) as an error card with
       # HTTP 200, so a real card is recognized by its content, not its status.
