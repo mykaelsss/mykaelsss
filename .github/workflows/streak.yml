@@ -1,0 +1,58 @@
+name: Generate streak card
+
+on:
+  schedule:
+    # 05:00 UTC is 1:00 in New York, after the local day has closed
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/streak.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: streak
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      STREAK_URL: https://github-readme-streak-stats.herokuapp.com/?user=${{ github.repository_owner }}&background=1C1C1C&border=BF2F2F&stroke=3F4E4F&ring=BF2F2F&fire=BF2F2F&currStreakNum=DCE3E5&sideNums=DCE3E5&currStreakLabel=D9C9B3&sideLabels=D9C9B3&dates=3F4E4F
+      PUBLISHED_URL: https://raw.githubusercontent.com/${{ github.repository }}/output/streak.svg
+    steps:
+      # The service reports failures (rate limits, outages) as an error card with
+      # HTTP 200, so a real card is recognized by its content, not its status.
+      # Publishing replaces the whole output branch, so when no fresh card can be
+      # fetched the last good one is carried over instead of being dropped.
+      - name: Fetch streak card
+        run: |
+          mkdir -p dist
+          is_card() { grep -q 'Total Contributions' "$1"; }
+
+          for attempt in 1 2 3 4 5; do
+            if curl -fsSL --max-time 60 "$STREAK_URL" -o dist/streak.svg && is_card dist/streak.svg; then
+              echo "Fetched a fresh card on attempt $attempt"
+              exit 0
+            fi
+            sleep 30
+          done
+
+          if curl -fsSL --retry 3 --max-time 30 "$PUBLISHED_URL" -o dist/streak.svg && is_card dist/streak.svg; then
+            echo "::warning::Streak service unavailable, republishing the last good card"
+          else
+            echo "::error::Streak service unavailable and no previously published card to fall back on"
+            exit 1
+          fi
+
+      - uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
