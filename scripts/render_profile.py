@@ -19,7 +19,7 @@ from zoneinfo import ZoneInfo
 
 TEMPLATE = Path(__file__).resolve().parent.parent / "profile_v7.svg"
 API = "https://api.github.com"
-# Days roll over in New York, matching the streak card and the profile location
+# Days roll over in New York, matching the profile location
 TZ = ZoneInfo("America/New_York")
 # Right edge of every info row, in characters, so values line up with the section rules
 ROW_WIDTH = 57
