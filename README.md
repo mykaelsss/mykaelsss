@@ -125,8 +125,6 @@ I like owning the whole system, not just the part that renders.
 
 ---
 
-## 📊 GitHub Stats
-
 <div align="center">
 
 <a href="https://formalytx.com/">
